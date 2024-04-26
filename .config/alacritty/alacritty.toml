@@ -1,0 +1,113 @@
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+color = "#ffffff"
+duration = 350
+
+[colors.bright]
+black = "#8e908c"
+blue = "#969896"
+cyan = "#a3685a"
+green = "#e0e0e0"
+magenta = "#282a2e"
+red = "#f5871f"
+white = "#1d1f21"
+yellow = "#d6d6d6"
+
+[colors.cursor]
+cursor = "#4d4d4c"
+text = "#ffffff"
+
+[colors.normal]
+black = "#ffffff"
+blue = "#4271ae"
+cyan = "#3e999f"
+green = "#718c00"
+magenta = "#8959a8"
+red = "#c82829"
+white = "#4d4d4c"
+yellow = "#eab700"
+
+# [colors.primary]
+# background = "#ffffff"
+# foreground = "#4d4d4c"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+# [debug]
+# log_level = "OFF"
+# persistent_logging = false
+# print_events = false
+# ref_test = false
+# render_timer = false
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Minus"
+mods = "Command|Shift"
+
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[shell]
+program = "/opt/homebrew/bin/zsh"
+
+[window]
+decorations = "buttonless"
+opacity = 0.95
+
+# [window.dimensions]
+# columns = 100
+# lines = 85
+
+[window.padding]
+x = 8
+y = 8
