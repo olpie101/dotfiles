@@ -1,0 +1,28 @@
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
+# zsh folder
+chmod -R go-w '/opt/homebrew/share/zsh'
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
+export ZSH_CONFIG_HOME=$HOME/.config/zsh
+source $ZSH_CONFIG_HOME/go.zsh
+source $ZSH_CONFIG_HOME/omz.zsh
+source $ZSH_CONFIG_HOME/common.zsh
+source $ZSH_CONFIG_HOME/aliases.zsh
+source $ZSH_CONFIG_HOME/podman.zsh
+source $ZSH_CONFIG_HOME/android.zsh
+source $ZSH_CONFIG_HOME/dotnet.zsh
+source $ZSH_CONFIG_HOME/cpp_flags.zsh
+source $ZSH_CONFIG_HOME/path_config.zsh
+source $ZSH_CONFIG_HOME/pew.zsh
+
