@@ -7,11 +7,22 @@ return { -- Highlight, edit, and navigate code
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'cue', 'javascript', 'typescript' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
+      }
+
+      -- Configure local tree-sitter-kcl parser
+      local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+      parser_config.kcl = {
+        install_info = {
+          url = '~/dev/tree-sitter-kcl',
+          files = { 'src/parser.c', 'src/scanner.c' },
+          branch = 'main',
+        },
+        filetype = 'kcl',
       }
 
       -- There are additional nvim-treesitter modules that you can use to interact

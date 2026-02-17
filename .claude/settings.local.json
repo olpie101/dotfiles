@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__zen__thinkdeep",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(/Users/eduardokolomajr/Downloads/kclvm/bin/kcl-language-server:*)",
+      "Bash(/Users/eduardokolomajr/Downloads/kclvm/bin/kclvm_cli:*)",
+      "mcp__zen__challenge",
+      "Bash(kcl-language-server:*)",
+      "Bash(podman ps:*)",
+      "Read(//Users/eduardokolomajr/dev/tree-sitter-kcl/src/**)",
+      "mcp__smart-tree__search",
+      "mcp__smart-tree__find"
+    ],
+    "deny": []
+  }
+}

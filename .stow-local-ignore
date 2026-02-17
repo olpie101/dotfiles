@@ -1,0 +1,22 @@
+# Stow local ignore - exclude from stow operations
+# These files/dirs should NOT be symlinked to home
+
+# Version control
+\.git
+\.gitignore
+
+# Documentation (keep in repo, don't symlink)
+README\.md
+docs
+
+# Build/provisioning (not configs)
+compose
+scripts
+
+# Logs and runtime data
+logs
+\.DS_Store
+
+# Nix build output
+result
+\.direnv

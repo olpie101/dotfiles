@@ -48,5 +48,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Open OilNvim
+vim.keymap.set('n', '<leader>f', ':Oil<CR>', { desc = 'Open OilNvim' })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

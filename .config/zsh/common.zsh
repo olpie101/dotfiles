@@ -23,8 +23,10 @@ fi
 if command -v zoxide &> /dev/null
 then
     eval "$(zoxide init zsh)"
-    alias cd=z
+    # alias cd=z
 else 
     echo "zoxide was not found"
 fi
 
+export GOOGLE_VERTEX_LOCATION=global
+export GOOGLE_VERTEX_PROJECT=ai-experiments-462607

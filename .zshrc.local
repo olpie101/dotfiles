@@ -6,12 +6,16 @@ export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 # zsh folder
-chmod -R go-w '/opt/homebrew/share/zsh'
+#chmod -R go-w '/opt/homebrew/share/zsh'
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
     autoload -Uz compinit
     compinit
+fi
+
+if [ -n "$TMUX" ]; then
+    trap 'pkill -TERM -P $$' EXIT
 fi
 
 export ZSH_CONFIG_HOME=$HOME/.config/zsh

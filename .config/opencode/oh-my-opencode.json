@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": {
+      "model": "google-vertex-anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "oracle": {
+      "model": "google/gemini-3-pro",
+      "variant": "high"
+    },
+    "librarian": {
+      "model": "google-vertex-anthropic/claude-sonnet-4-5"
+    },
+    "explore": {
+      "model": "google-vertex-anthropic/claude-haiku-4-5"
+    },
+    "multimodal-looker": {
+      "model": "google/gemini-3-flash"
+    },
+    "prometheus": {
+      "model": "google-vertex-anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "google-vertex-anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "google-vertex-anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "atlas": {
+      "model": "google-vertex-anthropic/claude-sonnet-4-5"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "google/gemini-3-pro"
+    },
+    "ultrabrain": {
+      "model": "google/gemini-3-pro",
+      "variant": "high"
+    },
+    "artistry": {
+      "model": "google/gemini-3-pro",
+      "variant": "high"
+    },
+    "quick": {
+      "model": "google-vertex-anthropic/claude-haiku-4-5"
+    },
+    "unspecified-low": {
+      "model": "google-vertex-anthropic/claude-sonnet-4-5"
+    },
+    "unspecified-high": {
+      "model": "google-vertex-anthropic/claude-opus-4-5",
+      "variant": "max"
+    },
+    "writing": {
+      "model": "google/gemini-3-flash"
+    }
+  }
+}

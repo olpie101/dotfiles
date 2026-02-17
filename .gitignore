@@ -1,2 +1,61 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 
+# Secrets - NEVER commit
+*.env
+*.env.*
+!*.env.example
+!*.env.sample
+credentials.json
+secrets.json
+*_secret*
+*.pem
+*.key
+
+# Personal documents
+*.pdf
+
+# Nix build artifacts
+result
+.direnv/
+
+# Runtime/cache data (not config)
+logs/
+*.log
+cache/
+*.cache
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Claude runtime data (if tracked in future)
+.claude/debug/
+.claude/todos/
+.claude/transcripts/
+.claude/shell-snapshots/
+.claude/session-env/
+.claude/file-history/
+.claude/paste-cache/
+.claude/projects/
+.claude/cache/
+.claude/statsig/
+.claude/telemetry/
+.claude/history.jsonl
+.claude/stats-cache.json
+.claude/statusline-debug.json
+.claude/*.backup
+
+# OpenCode runtime data
+.config/opencode/node_modules/
+.config/opencode/bun.lock

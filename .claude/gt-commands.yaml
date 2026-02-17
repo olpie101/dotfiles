@@ -1,0 +1,128 @@
+# gt-commands.yaml - Formal command registry for gt:* commands
+# CLAUDE.md provides documentation and examples; this file provides the contract
+
+commands:
+  gt:create-bead:
+    executes: "bd create \"<title>\" -d \"<desc>\" --rig <rig>"
+    triggers:
+      - pattern: "create (a )?(task|issue|bead) for"
+      - pattern: "add (a )?work item for"
+      - pattern: "track this (as )?(a )?(task|issue|bead)"
+    required:
+      - name: title
+        description: "Bead title"
+      - name: description
+        description: "Bead description"
+      - name: rig
+        description: "Target rig (or infer from cwd)"
+    optional:
+      - name: type
+        description: "task|bug|feature|epic|chore"
+        default: "task"
+      - name: priority
+        description: "0-4"
+        default: 2
+      - name: parent
+        description: "Parent bead ID for sub-beads"
+
+  gt:update-bead:
+    executes: "bd update <id> [--field value...]"
+    triggers:
+      - pattern: "update (bead |issue )?"
+      - pattern: "mark .* as (in_progress|blocked|done)"
+      - pattern: "change (the )?status of"
+    required:
+      - name: bead_id
+        description: "Bead to update"
+    optional:
+      - name: status
+        description: "open|in_progress|blocked|deferred|closed"
+      - name: priority
+        description: "0-4"
+      - name: assignee
+        description: "Agent name"
+
+  gt:close-bead:
+    executes: "bd close <id> --reason \"<reason>\""
+    triggers:
+      - pattern: "close (bead |issue )?"
+      - pattern: "complete (bead |issue )?"
+      - pattern: ".* is (done|completed|finished)"
+    required:
+      - name: bead_id
+        description: "Bead to close"
+      - name: reason
+        description: "Closure reason"
+
+  gt:sling:
+    executes: "gt sling <bead-id> <target>"
+    triggers:
+      - pattern: "sling .* to"
+      - pattern: "dispatch .* to"
+      - pattern: "have .* work on"
+      - pattern: "send .* to (rig|agent)"
+    required:
+      - name: bead_id
+        description: "Bead to dispatch"
+      - name: target
+        description: "Target rig/agent"
+    optional:
+      - name: args
+        description: "Natural language instructions"
+      - name: force
+        description: "Ignore unread mail / reassign"
+        default: false
+    disambiguation:
+      - trigger: "assign to (person|user|human)"
+        use: "gt:update-bead"
+      - trigger: "assign to (rig|agent|polecat|crew)"
+        use: "gt:sling"
+
+  gt:sling-formula:
+    executes: "gt sling <formula> --on <bead-id> <target>"
+    triggers:
+      - pattern: "apply (formula|workflow|molecule) .* to"
+      - pattern: "run .* (formula|workflow) on"
+    required:
+      - name: formula_id
+        description: "Formula/molecule ID (e.g., mol-review)"
+      - name: bead_id
+        description: "Bead to apply formula to"
+      - name: target
+        description: "Target rig/agent"
+    optional:
+      - name: var
+        description: "Formula variables (repeatable)"
+
+  gt:work:
+    executes: "/gt:work <bead-id>"
+    triggers:
+      - pattern: "work on (bead )?"
+      - pattern: "implement (bead )?"
+      - pattern: "start implement"
+      - pattern: "execute work"
+    required:
+      - name: bead_id
+        description: "Bead to work on (or from hook)"
+    role_guard:
+      - polecat
+      - crew
+    maps_to: "/gt:work"
+
+# Error handling behavior (documented for reference)
+error_handling:
+  resling_occupied:
+    description: "Target agent already has work on hook"
+    behavior: "Requires --force flag to reassign"
+
+  close_already_closed:
+    description: "Attempting to close an already-closed bead"
+    behavior: "Idempotent - no error, no action"
+
+  circular_dependency:
+    description: "bd dep add would create circular dependency"
+    behavior: "bd dep add prevents and returns error"
+
+  double_hook:
+    description: "Two agents attempting to hook same bead"
+    behavior: "gt throws error, requires --force to reassign"
