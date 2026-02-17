@@ -14,7 +14,7 @@
       "description": "Zsh configuration files",
       "source": ".",
       "target": "~",
-      "files": [".zshrc", ".zshrc.local"],
+      "files": [".zshrc", ".zshrc.local", ".zsh_plugins.txt"],
       "platforms": ["darwin", "linux"]
     },
     {

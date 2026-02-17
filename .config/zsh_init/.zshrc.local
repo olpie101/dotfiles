@@ -1,17 +1,24 @@
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+# Homebrew setup (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    export HOMEBREW_PREFIX="/opt/homebrew"
+  elif [[ -f "/usr/local/bin/brew" ]]; then
+    export HOMEBREW_PREFIX="/usr/local"
+  fi
 
-# zsh folder
-#chmod -R go-w '/opt/homebrew/share/zsh'
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  if [[ -n "$HOMEBREW_PREFIX" ]]; then
+    export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+    export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
+    export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin${PATH+:$PATH}"
+    export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:"
+    export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}"
 
-    autoload -Uz compinit
-    compinit
+    if type brew &>/dev/null; then
+      FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+      autoload -Uz compinit
+      compinit
+    fi
+  fi
 fi
 
 export ZSH_CONFIG_HOME=$HOME/.config/zsh

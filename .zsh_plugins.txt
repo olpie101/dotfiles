@@ -1,0 +1,43 @@
+# Zsh plugins managed by antidote
+# Run `antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh` after changes
+
+# Prompt theme - powerlevel10k
+romkatv/powerlevel10k
+
+# Completions
+zsh-users/zsh-completions
+
+# Oh My Zsh plugins
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
+
+ohmyzsh/ohmyzsh path:plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/brew
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/history-substring-search
+
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
+ohmyzsh/ohmyzsh path:plugins/git-escape-magic
+ohmyzsh/ohmyzsh path:plugins/gitignore
+ohmyzsh/ohmyzsh path:plugins/magic-enter
+
+ohmyzsh/ohmyzsh path:plugins/ansible
+ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/podman
+ohmyzsh/ohmyzsh path:plugins/nats
+ohmyzsh/ohmyzsh path:plugins/fd/_fd kind:fpath
+ohmyzsh/ohmyzsh path:plugins/ripgrep/_ripgrep kind:fpath
+
+ohmyzsh/ohmyzsh path:plugins/emoji
+ohmyzsh/ohmyzsh path:plugins/encode64
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/gcloud
+
+ohmyzsh/ohmyzsh path:plugins/kubectl
+ohmyzsh/ohmyzsh path:plugins/kubectx
+ohmyzsh/ohmyzsh path:plugins/nvm
+
+# Other plugins
+holman/dotfiles path:git/completion.zsh
+zsh-users/zsh-autosuggestions
