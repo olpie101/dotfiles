@@ -87,6 +87,7 @@
       "description": "User scripts and binaries",
       "source": ".local/bin",
       "target": "~/.local/bin",
+      "files": ["claude-code-launcher", "gt-codex", "gt-opencode"],
       "platforms": ["darwin", "linux"]
     },
     {

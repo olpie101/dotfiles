@@ -59,3 +59,6 @@ fi
 unset CONDA_BASE
 # <<< conda initialize <<<
 
+# opencode (portable)
+[[ -d "$HOME/.opencode/bin" ]] && export PATH="$HOME/.opencode/bin:$PATH"
+
