@@ -161,7 +161,12 @@ stow_package() {
   
   # Expand paths
   target=$(expand_path "$target")
-  local source_path="$DOTFILES_DIR/$source"
+  local source_path
+  if [[ "$source" == "." ]]; then
+    source_path="$DOTFILES_DIR"
+  else
+    source_path="$DOTFILES_DIR/$source"
+  fi
   
   # Verify source exists
   if [[ ! -e "$source_path" ]]; then
