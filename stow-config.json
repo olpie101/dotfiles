@@ -71,6 +71,7 @@
       "description": "OpenCode agent configuration",
       "source": ".config/opencode",
       "target": "~/.config/opencode",
+      "files": ["AGENTS.md", "oh-my-opencode.json", "opencode.json"],
       "platforms": ["darwin", "linux"]
     },
     {
