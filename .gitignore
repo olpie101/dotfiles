@@ -39,7 +39,7 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Claude runtime data (if tracked in future)
+# Claude runtime data (not config)
 .claude/debug/
 .claude/todos/
 .claude/transcripts/
@@ -55,6 +55,14 @@ __pycache__/
 .claude/stats-cache.json
 .claude/statusline-debug.json
 .claude/*.backup
+.claude/.checksums
+
+# Claude credentials - NEVER commit
+.claude/.credentials.json
+
+# Claude plugins - downloaded repos (regenerated on install)
+.claude/plugins/marketplaces/
+.claude/plugins/known_marketplaces.json
 
 # OpenCode runtime data
 .config/opencode/node_modules/
