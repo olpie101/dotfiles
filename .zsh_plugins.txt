@@ -1,9 +1,6 @@
 # Zsh plugins managed by antidote
 # Run `antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh` after changes
 
-# Prompt theme - powerlevel10k
-romkatv/powerlevel10k
-
 # Completions
 zsh-users/zsh-completions
 
