@@ -437,9 +437,9 @@ main() {
   
   for pkg in "${packages[@]}"; do
     if stow_package "$pkg" "$action" "$dry_run" "$adopt" "$force"; then
-      ((success++))
+      ((success++)) || true
     else
-      ((failed++))
+      ((failed++)) || true
     fi
     echo ""
   done
