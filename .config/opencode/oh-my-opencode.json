@@ -6,7 +6,7 @@
       "variant": "max"
     },
     "oracle": {
-      "model": "google/gemini-3-pro",
+      "model": "google-vertex/gemini-3-pro",
       "variant": "high"
     },
     "librarian": {
@@ -16,7 +16,7 @@
       "model": "google-vertex-anthropic/claude-haiku-4-5"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash"
+      "model": "google-vertex/gemini-3-flash"
     },
     "prometheus": {
       "model": "google-vertex-anthropic/claude-opus-4-5",
@@ -36,14 +36,14 @@
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/gemini-3-pro"
+      "model": "google-vertex/gemini-3-pro"
     },
     "ultrabrain": {
-      "model": "google/gemini-3-pro",
+      "model": "google-vertex/gemini-3-pro",
       "variant": "high"
     },
     "artistry": {
-      "model": "google/gemini-3-pro",
+      "model": "google-vertex/gemini-3-pro",
       "variant": "high"
     },
     "quick": {
@@ -57,7 +57,7 @@
       "variant": "max"
     },
     "writing": {
-      "model": "google/gemini-3-flash"
+      "model": "google-vertex/gemini-3-flash"
     }
   }
 }

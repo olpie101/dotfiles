@@ -1,0 +1,128 @@
+{
+  "$schema": "./stow-config.schema.json",
+  "description": "Dotfiles stow configuration - maps source dirs to target locations",
+  "version": "1.0.0",
+  
+  "defaults": {
+    "stow_options": ["--verbose", "--no-folding"],
+    "adopt_existing": false
+  },
+
+  "packages": [
+    {
+      "name": "shell",
+      "description": "Zsh configuration files",
+      "source": ".",
+      "target": "~",
+      "files": [".zshrc", ".zshrc.local"],
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "claude",
+      "description": "Claude Code agent configuration",
+      "source": ".claude",
+      "target": "~/.claude",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "nvim",
+      "description": "Neovim configuration",
+      "source": ".config/nvim",
+      "target": "~/.config/nvim",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "zsh-modules",
+      "description": "Zsh modular config files",
+      "source": ".config/zsh",
+      "target": "~/.config/zsh",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "zsh-init",
+      "description": "Zsh init files for ~/.config",
+      "source": ".config/zsh_init",
+      "target": "~/.config",
+      "files": [".zshrc", ".zshrc.local"],
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "starship",
+      "description": "Starship prompt configuration",
+      "source": ".config",
+      "target": "~/.config",
+      "files": ["starship.toml"],
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "opencode",
+      "description": "OpenCode agent configuration",
+      "source": ".config/opencode",
+      "target": "~/.config/opencode",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "alacritty",
+      "description": "Alacritty terminal configuration",
+      "source": ".config/alacritty",
+      "target": "~/.config/alacritty",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "ghostty",
+      "description": "Ghostty terminal configuration",
+      "source": ".config/ghostty",
+      "target": "~/.config/ghostty",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "fabric",
+      "description": "Fabric AI patterns",
+      "source": ".config/fabric",
+      "target": "~/.config/fabric",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "bin",
+      "description": "User scripts and binaries",
+      "source": ".local/bin",
+      "target": "~/.local/bin",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "nix",
+      "description": "Nix package manager configuration",
+      "source": ".config/nix",
+      "target": "~/.config/nix",
+      "platforms": ["darwin", "linux"]
+    },
+    {
+      "name": "nix-darwin",
+      "description": "Nix-darwin macOS configuration",
+      "source": ".config/nix-darwin",
+      "target": "~/.config/nix-darwin",
+      "platforms": ["darwin"]
+    },
+    {
+      "name": "nixpkgs",
+      "description": "Nixpkgs configuration",
+      "source": ".config/nixpkgs",
+      "target": "~/.config/nixpkgs",
+      "platforms": ["darwin"]
+    }
+  ],
+
+  "exclude_always": [
+    ".git",
+    ".gitignore",
+    ".DS_Store",
+    "README.md",
+    "stow-config.json",
+    "stow-config.schema.json",
+    ".stow-local-ignore",
+    "scripts",
+    "docs",
+    "compose",
+    "logs"
+  ]
+}
