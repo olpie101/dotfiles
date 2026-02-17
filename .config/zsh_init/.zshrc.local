@@ -32,4 +32,5 @@ source $ZSH_CONFIG_HOME/dotnet.zsh
 source $ZSH_CONFIG_HOME/cpp_flags.zsh
 source $ZSH_CONFIG_HOME/path_config.zsh
 source $ZSH_CONFIG_HOME/pew.zsh
+source $ZSH_CONFIG_HOME/bun.zsh
 

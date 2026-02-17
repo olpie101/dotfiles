@@ -1,7 +1,7 @@
-# bun completions
-[ -s "/Users/eduardokolomajr/.bun/_bun" ] && source "/Users/eduardokolomajr/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+[[ -d "$BUN_INSTALL/bin" ]] && export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun completions
+[[ -s "$BUN_INSTALL/_bun" ]] && source "$BUN_INSTALL/_bun"
 
