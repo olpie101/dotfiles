@@ -32,9 +32,22 @@ FPATH="$ZSH_CACHE_DIR/completions":$FPATH
 autoload -Uz compinit
 compinit
 
-# source antidote
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-#source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+# source antidote (portable)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS: Homebrew location
+  if [[ -f "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh" ]]; then
+    source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+  elif [[ -f "/usr/local/opt/antidote/share/antidote/antidote.zsh" ]]; then
+    source /usr/local/opt/antidote/share/antidote/antidote.zsh
+  fi
+else
+  # Linux: git clone install location or distro packages
+  if [[ -f "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.antidote/antidote.zsh"
+  elif [[ -f "/usr/share/zsh-antidote/antidote.zsh" ]]; then
+    source /usr/share/zsh-antidote/antidote.zsh
+  fi
+fi
 
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
