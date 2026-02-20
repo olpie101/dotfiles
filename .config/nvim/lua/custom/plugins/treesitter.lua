@@ -2,31 +2,51 @@ return { -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    -- opts = {
+    --   ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'cue', 'javascript', 'typescript', 'go' },
+    --   highlight = { enable = true },
+    -- },
+    -- opts = {
+    --
+    -- }
     config = function()
-      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-      local nts = require 'nvim-treesitter'
-      nts.install { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'cue', 'javascript', 'typescript', 'go' }
-      ---@diagnostic disable-next-line: missing-fields
-
-      -- Configure local tree-sitter-kcl parser
-      -- local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-      -- parser_config.kcl = {
-      --   install_info = {
-      --     url = '~/dev/tree-sitter-kcl',
-      --     files = { 'src/parser.c', 'src/scanner.c' },
-      --     branch = 'main',
-      --   },
-      --   filetype = 'kcl',
-      -- }
-      --
-      -- There are additional nvim-treesitter modules that you can use to interact
-      -- with nvim-treesitter. You should go explore a few and see what interests you:
-      --
-      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+      require('nvim-treesitter').setup {
+        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'cue', 'javascript', 'typescript', 'go' },
+        highlight = { enable = true },
+      }
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function()
+          if pcall(vim.treesitter.start) then
+            vim.bo.syntax = ''
+          end
+        end,
+      })
     end,
+    -- config = function()
+    --   -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    --
+    --   local nts = require 'nvim-treesitter'
+    --   nts.ensure_installed { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'cue', 'javascript', 'typescript', 'go' }
+    --   ---@diagnostic disable-next-line: missing-fields
+    --
+    --   -- Configure local tree-sitter-kcl parser
+    --   -- local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+    --   -- parser_config.kcl = {
+    --   --   install_info = {
+    --   --     url = '~/dev/tree-sitter-kcl',
+    --   --     files = { 'src/parser.c', 'src/scanner.c' },
+    --   --     branch = 'main',
+    --   --   },
+    --   --   filetype = 'kcl',
+    --   -- }
+    --   --
+    --   -- There are additional nvim-treesitter modules that you can use to interact
+    --   -- with nvim-treesitter. You should go explore a few and see what interests you:
+    --   --
+    --   --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+    --   --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+    --   --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    -- end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
