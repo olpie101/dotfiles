@@ -10,7 +10,7 @@
       "variant": "high"
     },
     "librarian": {
-      "model": "google-vertex-anthropic/claude-sonnet-4-5"
+      "model": "google-vertex-anthropic/claude-sonnet-4-6"
     },
     "explore": {
       "model": "google-vertex-anthropic/claude-haiku-4-5"
@@ -31,7 +31,7 @@
       "variant": "max"
     },
     "atlas": {
-      "model": "google-vertex-anthropic/claude-sonnet-4-5"
+      "model": "google-vertex-anthropic/claude-sonnet-4-6"
     }
   },
   "categories": {
@@ -50,14 +50,14 @@
       "model": "google-vertex-anthropic/claude-haiku-4-5"
     },
     "unspecified-low": {
-      "model": "google-vertex-anthropic/claude-sonnet-4-5"
+      "model": "google-vertex-anthropic/claude-sonnet-4-6"
     },
     "unspecified-high": {
-      "model": "google-vertex-anthropic/claude-opus-4-5",
+      "model": "google-vertex-anthropic/claude-opus-4-6",
       "variant": "max"
     },
     "writing": {
-      "model": "google-vertex/gemini-3-flash"
+      "model": "google-vertex/gemini-3-flash-preview"
     }
   }
 }

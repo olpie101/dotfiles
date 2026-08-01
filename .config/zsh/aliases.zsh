@@ -14,3 +14,8 @@ if [[ "$OSTYPE" == "linux"* ]]; then
         alias bat="batcat"
     fi
 fi
+
+# Drop the ohmyzsh `gc` alias, but only when it is actually set — an
+# unconditional unalias errors on every start with
+#   unalias: no such hash table element: gc
+(( ${+aliases[gc]} )) && unalias gc

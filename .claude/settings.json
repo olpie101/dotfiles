@@ -137,9 +137,9 @@
     "adw-doc-consolidator@cc-adw-marketplace": true,
     "gopls-lsp@claude-plugins-official": true
   },
+  "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754042644834
   },
-  "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true
+  "teammateMode": "tmux"
 }

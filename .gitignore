@@ -67,3 +67,8 @@ __pycache__/
 # OpenCode runtime data
 .config/opencode/node_modules/
 .config/opencode/bun.lock
+
+# Claude Code plugin registry - machine state, not config. Carries an
+# absolute installPath and per-machine timestamps, so tracking it produced a
+# spurious diff on every host.
+.claude/plugins/installed_plugins.json

@@ -62,3 +62,5 @@ unset CONDA_BASE
 # opencode (portable)
 [[ -d "$HOME/.opencode/bin" ]] && export PATH="$HOME/.opencode/bin:$PATH"
 
+
+export PATH="/usr/local/bin:$PATH"
